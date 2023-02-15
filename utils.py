@@ -1,4 +1,5 @@
 from math import sqrt
+from scipy import integrate as itg
 
 def fact(n):
 	"""Computes the factorial of a natural number.
@@ -42,7 +43,8 @@ def integrate(function, lower, upper):
 		you'll probably need the 'eval' function to evaluate the function
 		to integrate given as a string.
 	"""
-	pass
+	result = itg.quad(lambda x : eval(function), lower, upper)
+	return result[0]
 
 if __name__ == '__main__':
 	print(fact(5))
